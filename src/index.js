@@ -16,17 +16,12 @@ refs.themeSwitch.target = refs.themeSwitch.addEventListener(
   'change',
   changeTheme,
 );
-
-themePage();
-
 refs.listMenu.insertAdjacentHTML('beforeend', menuElTpl(menu));
 
-function themePage() {
-  if (!localStorage.length) {
-    refs.body.classList.add(`${Theme.LIGHT}`);
-  } else {
-    refs.body.classList = localStorage.getItem('currentTheme');
-  }
+if (!localStorage.length) {
+  refs.body.classList.add(`${Theme.LIGHT}`);
+} else {
+  refs.body.classList = localStorage.getItem('currentTheme');
 }
 
 function changeTheme(e) {
