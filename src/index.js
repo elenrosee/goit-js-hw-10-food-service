@@ -12,10 +12,7 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-refs.themeSwitch.target = refs.themeSwitch.addEventListener(
-  'change',
-  changeTheme,
-);
+refs.themeSwitch.addEventListener('change', changeTheme);
 refs.listMenu.insertAdjacentHTML('beforeend', menuElTpl(menu));
 
 if (!localStorage.length) {
