@@ -15,7 +15,7 @@ const Theme = {
 refs.themeSwitch.addEventListener('change', changeTheme);
 refs.listMenu.insertAdjacentHTML('beforeend', menuElTpl(menu));
 
-if (!localStorage.length) {
+if (!localStorage.currentTheme) {
   refs.body.classList.add(`${Theme.LIGHT}`);
 } else {
   refs.body.classList = localStorage.getItem('currentTheme');
