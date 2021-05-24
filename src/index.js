@@ -15,22 +15,16 @@ const Theme = {
 refs.themeSwitch.addEventListener('change', changeTheme);
 refs.listMenu.insertAdjacentHTML('beforeend', menuElTpl(menu));
 
-if (!localStorage.currentTheme) {
-  refs.body.classList.add(`${Theme.LIGHT}`);
-} else {
-  refs.body.classList = localStorage.getItem('currentTheme');
-}
+refs.body.classList = localStorage.getItem('currentTheme') || `${Theme.LIGHT}`;
 
 if (localStorage.getItem('currentTheme') === 'dark-theme') {
   refs.themeSwitch.checked = true;
 }
 
 function changeTheme(e) {
-  if (e.target.checked) {
-    localStorage.setItem('currentTheme', `${Theme.DARK}`);
-  } else {
-    localStorage.setItem('currentTheme', `${Theme.LIGHT}`);
-  }
+  e.target.checked
+    ? localStorage.setItem('currentTheme', `${Theme.DARK}`)
+    : localStorage.setItem('currentTheme', `${Theme.LIGHT}`);
 
   refs.body.classList = localStorage.getItem('currentTheme');
 }
