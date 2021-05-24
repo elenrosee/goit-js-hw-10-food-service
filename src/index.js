@@ -21,6 +21,10 @@ if (!localStorage.currentTheme) {
   refs.body.classList = localStorage.getItem('currentTheme');
 }
 
+if (localStorage.getItem('currentTheme') === 'dark-theme') {
+  refs.themeSwitch.checked = true;
+}
+
 function changeTheme(e) {
   if (e.target.checked) {
     localStorage.setItem('currentTheme', `${Theme.DARK}`);
